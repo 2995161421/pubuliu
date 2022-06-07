@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<style type="text/css">
+			ul{
+				width: 800px;
+				height: 150px;
+				/* background: #00FF7F; */
+				padding: 0;
+			}
+			ul li{
+				list-style: none;
+				float: left;
+				width: 50px;
+				height: 150px;
+				overflow: hidden;
+			}
+			ul li img{
+			    width: 240px;
+			    height: 150px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+		    <li><img src="../img/美女1号.jpg" alt=""></li>
+		    <li><img src="../img/美女2号.jpg" alt=""></li>
+		    <li><img src="../img/美女3号.jpg" alt=""></li>
+		    <li><img src="../img/美女4号.jpg" alt=""></li>
+		    <li><img src="../img/美女5.jpg" alt=""></li>
+		</ul>
+		<script type="text/javascript">
+			var li = document.getElementsByTagName("li")
+			$("li").mouseover(function(){
+			    $(this).animate({
+			        width:240  //或者"240",但不能是240px
+			    }).siblings("li").stop().animate({
+			        width:50
+			    })
+			})
+		</script>
+	</body>
+</html>

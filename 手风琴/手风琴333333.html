@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>手风琴</title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				padding: 0;
+				list-style: none;
+			}
+			img{
+				width: 580px;
+				height: 360px;
+			}
+			.accordion{
+				width: 900px;
+				height: 300px;
+				border: 1px solid black;
+				margin: 50px auto;
+				position: relative;
+				overflow: hidden;
+			}
+			.accordion ul li{
+				position: absolute;
+			}
+			.one{
+				left: 0;
+			}
+			.two{
+				left:180px;
+			}
+			.three{
+				left:360px;
+			}
+			.four{
+				left: 540px;
+			}
+			.five{
+				left: 720px;
+			}
+		</style>
+	</head>
+	<body>
+		<div  class="accordion" >
+			<ul>
+				<li class="one"><img src="../img/美女1号.jpg" ></li>
+				<li class="two"><img src="../img/美女2号.jpg" ></li>
+				<li class="three"><img src="../img/美女3号.jpg" ></li>
+				<li class="four"><img src="../img/美女4号.jpg" ></li>
+				<li class="five"><img src="../img/美女5.jpg" ></li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			// 设置照片移动的速度  speed（速度）
+			var speed = 300;
+			
+			$("li").mouseover(function(){
+				// 创建一个新变量 来接收li当前的下标
+				var index = $(this).index();
+			})
+			
+			//左侧，则左走85*idx px
+			        $(".accordion ul li:lt("+(idx+1)+")").each(function(i){
+			            $(this).stop().animate({
+			                "left": 85 * i
+			            },speed);
+			        });
+			        //右侧，向左走 560 + 85*idx px
+			        $(".accordion ul li:gt("+idx+")").each(function(i){
+			            $(this).stop(true).animate({
+			                "left": 560 + 85 * (idx+i)
+			            },speed);
+			        });
+			 
+			        $(".accordion").mouseleave(function(){
+			            $(".accordion ul li").each(function(i){
+			                $(this).animate({
+			                    "left":180 * i
+			                },speed);
+			                $(".mask").fadeIn();
+			            });
+			        });
+			    })
+			})
+		</script>
+	</body>
+</html>
