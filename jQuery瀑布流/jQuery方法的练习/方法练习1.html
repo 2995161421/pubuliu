@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery</title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<style type="text/css">
+			div{
+				background-color: skyblue;
+			}
+			p{
+				background-color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="a" class="b">
+			hello
+			<p class="b">我是div里面的 p标签</p>
+			<a href="#" title="love">abcdefg</a>
+			world
+		</div>
+		<div id="a" class="b">
+			hello
+			<p class="b">我是div里面的 p标签</p>
+			<a href="#" title="love">abcdefg</a>
+			world
+		</div>
+		<div id="a" class="b">
+			hello
+			<p class="b">我是div里面的 p标签</p>
+			<a href="#" title="love">abcdefg</a>
+			world
+		</div>
+		<div id="a" class="b">
+			hello
+			<p class="b">我是div里面的 p标签</p>
+			<a href="#" title="love">abcdefg</a>
+			world
+		</div>
+		<hr />
+		<img src="../img/美女1.jpg" alt="" width="380px" height="260px" class="张志杰" >
+		<input type="text" value="wwwwwwwwwwww" />
+		inpu<input type="button" value="点击" id="btn1" style="width: 200px;" />
+	</body>
+	<script type="text/javascript">
+		// window.onload 当页面加载完成
+		// window.onload=function(){
+			
+		// }
+		//当我们的document结构绘制完毕 可能document相关联的东西没有加载完
+		//$(document).ready()  DOM执行完毕 执行
+		
+		//_______________________________________________________
+		//jQuery 语法 $(选择器).action()
+		// hide 隐藏标签元素
+		// $(function(){
+		// 	$("p").hide();
+		// })
+		// $(function(){
+		// 	$("div").hide();
+		// })
+		//________________________________________________________
+		
+	    /* 
+		//1.基础选择器 2.层级选择器  3.属性选择器 4.伪类选择器 
+		    基础选择器的基本语法：$(选择器)
+		    返回值：返回的是满足条件的所以元素(除了id之外)
+		    =>放在一个数组中返回
+		    =>以一个集合的形势拿到，我们叫这个集合为jQuery元素集合
+	    */
+        //console.log($("p")); //基础选择器
+		//console.log($("#a"));//id选择器
+		//console.log($(".b"));//class选择器
+		//console.log($("div>p:nth-child(1)"));//结构伪类选择器
+		//var div=document.querySelector("div");
+		
+		//console.log($("*"));
+		//console.log($("a[title=love]"));//属性选择器
+		
+		/* 2.特殊选择器
+		     特殊选择器的语法： $(选择器)
+		     已对特殊选择器进行修饰的
+			 1.   ：first
+			 2.   ：last
+			 3.   ：eq(下标索引)
+			 4.   ：odd
+			 5.   ：even(按照索引排列的偶个数)
+		*/
+	   //$("div:first");//获取第一个选择器
+	   //console.log($("div:first"));
+	   
+	   //$("div:last");//获取最后一个选择器
+	   //console.log($("div:last"));
+	   
+	   //$("div:eq(2)");//获取索引下标的选择器
+	   //console.log($("div:eq(2)"));
+	   
+	   //$("div:odd");//获取奇数选择器
+	   //console.log($("div:odd"));
+	   
+	   //$("div:even")//获取偶数选择器
+	   //console.log($("div:even"))
+	   
+	   /* 二、DOM操作 操作元素的文本和超文本
+		 1.元素集合 .text()
+		 =>获取该元素的文本内容，以字符串形势返回
+		 =>设置该元素的文本内容  元素集合.text("内容")
+	   */
+	   //元素集合   获取下标为[0]的div里面的文本内容元素 .text()
+	   //$("div:eq(0)").text("<b>我是新加的内容</b>");
+	   //console.log($("div:eq(0)").text());
+	   
+	   /* 
+	     2.元素集合 .html()
+	     =>获取该元素的文本和标签内容，以字符串形势返回
+	     =>设置该元素的文本内容可以解析标签  元素集合.text("内容")
+	   */
+	  
+	  //元素集合  获取下标为[1]的div里面的文本和内容的元素 .html
+	   //$("div:eq(1)").html;
+	   //console.log($("div:eq(1)").html("<b>我是加粗字体</b>"));
+	   
+	   /* 
+	     3.元素集合 .val()
+		 =>获取表单中的值
+		 =>设置表单中的值
+	   */
+	  //$("input").val("qqqqqqqqqqq");
+	  //console.log($("input").val());
+	  
+	  /* 
+	  三、DOM操作 操作属性
+	     1.attr()
+		 =>获取该元素的属性值，可以拿到元素的固有属性，元素本身自带的属性、
+		 =>设置该元素的属性 $(选择器).removeattr({属性1,，属性2.......})
+		 $("#btn1").click(function(){
+		 		 alert($(this).attr("type"));
+		 		 alert($(this).css("width"));
+		 })
+		 $("#btn1").click(function(){
+		 		 $("img").attr({
+		 			 "width":"500",
+		 			 "height":"300px"
+		 		 })
+		 })
+		 
+		 2.removeattr()
+		 =>从该元素中移除该属性  $(选择器).removeAttr({属性1，属性2..........})
+		 $("img").removeAttr("张志杰");
+	  */
+	    
+	  /* 
+	  四、css属性操作 
+	  
+	  $
+	  */
+	 
+	</script>
+</html>
